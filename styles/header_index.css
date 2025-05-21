@@ -1,0 +1,328 @@
+@import url("./global.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.trangchu {
+    background-color: var(--primary-dark);
+    padding: 0 0 12px 0;
+    box-shadow: var(--box-shadow);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu ul li {
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.menu ul li a:hover {
+    background-color: var(--primary-light);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--primary-dark);
+    min-width: 200px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    z-index: 10;
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.dropdown-content li {
+    list-style: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-content li a,
+.dropdown-content li span {
+    display: block;
+    padding: 10px 16px;
+    color: var(--light-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.dropdown-content li a:hover {
+    background-color: var(--primary-light);
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.user-icon {
+    font-size: 16px;
+    margin-right: 5px;
+    color: var(--light-color);
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-light);
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.box input[type="search"] {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    outline: none;
+    width: 180px;
+    transition: var(--transition);
+}
+
+.box input[type="search"]:focus {
+    width: 220px;
+}
+
+.box .icon {
+    color: var(--light-color);
+    font-size: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 5px 0;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.menu ul li img {
+    vertical-align: middle;
+    width: 20px;
+    transition: var(--transition);
+}
+
+.menu ul li a:hover img {
+    transform: scale(1.1);
+}
+
+/* Đảm bảo icon Font Awesome trong menu */
+.trangchu .fas,
+.trangchu .fa {
+    color: var(--light-color);
+}
+
+/* Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shadow-color);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--primary-dark);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 350px;
+    max-width: 90%;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+.modal-overlay.active .modal-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--light-color);
+    font-size: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-content .close-btn:hover {
+    color: var(--primary-light);
+}
+
+.modal-content h3 {
+    color: var(--light-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-content label {
+    color: var(--light-color);
+    font-size: 14px;
+}
+
+.modal-content input {
+    padding: 8px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-light);
+    color: var(--light-color);
+    outline: none;
+    font-size: 14px;
+}
+
+.modal-content input::placeholder {
+    color: var(--gray-light);
+}
+
+.modal-content button {
+    padding: 10px;
+    background-color: var(--primary-dark);
+    color: var(--light-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-content button:hover {
+    background-color: var(--primary-light);
+}
+
+.modal-content .message {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.modal-content .message.error {
+    color: var(--danger-color);
+}
+
+.modal-content .message.success {
+    color: var(--success-color);
+}
+
+.modal-content .link {
+    color: var(--light-color);
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.modal-content .link:hover {
+    color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .box {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .box input[type="search"] {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
