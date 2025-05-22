@@ -1,4 +1,3 @@
-
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -81,6 +80,7 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,14 +91,17 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
         .product-card {
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
+
         .product-card-enter {
             opacity: 0;
             transform: translateY(20px);
         }
+
         .product-card-enter-active {
             opacity: 1;
             transform: translateY(0);
         }
+
         .add-to-cart-btn {
             display: inline-block;
             padding: 5px 10px;
@@ -108,22 +111,34 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+
         .add-to-cart-btn:hover {
             background-color: #45a049;
         }
+
         .add-to-cart-btn.clicked {
             animation: pulse 0.5s;
         }
+
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .toast {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #4CAF50;
+            background-color: rgb(106, 220, 255);
             color: white;
             padding: 12px 24px;
             border-radius: 5px;
@@ -131,11 +146,13 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
             transition: opacity 0.3s ease-in-out;
             z-index: 1000;
         }
+
         .toast.show {
             opacity: 1;
         }
     </style>
 </head>
+
 <body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto p-4">
         <div id="product-container">
@@ -310,9 +327,9 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
             }, 500);
 
             fetch(`/Project1_Product/cart/add_to_cart.php?masp=${masp}&ajax=1`, {
-                method: 'GET',
-                credentials: 'same-origin'
-            })
+                    method: 'GET',
+                    credentials: 'same-origin'
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -337,6 +354,7 @@ if (isset($_GET['add_to_cart']) && isset($_GET['masp'])) {
         });
     </script>
 </body>
+
 </html>
 
 <?php mysqli_close($connect); ?>
